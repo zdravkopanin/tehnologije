@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Linearna regresija</title>
+    <link rel="stylesheet" href="dekorisanje.css">
+</head>
+
+<body>
+    <header>
+        <h1>Linearna regresija</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="stranice/logička.html">LOGISTIČKA REGRESIJA</a>
+            </li>
+            <li>
+                <a href="stranice/ksredin.html">K SREDINA</a>
+            </li>
+            <li>
+                <a href="stranice/autor.html">AUTOR</a>
+            </li>
+            <li>
+                <a href="stranice/višestruka.html">VIŠESTRUKA LINEARNA REGRESIJA</a>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <p>Linearna regresija predstavlja jedan od najjednostavnijih i najčešće korišćenih modela mašinskog učenja.
+            Postoje različiti načini njenog uvođenja.
+            Jedan je probabilistički i verovatno otkriva više o ovom metodu od ostalih. Sa
+            probabilističke tačke gledišta, osnovna pretpostavka je pretpostavka normalne
+            raspodele ciljne promenljive y, pri datim vrednostima atributa x. Odnosno,
+            važi <b>p(y|x)= N(f(x,σ<sup>2</sup>)=1√2πσ<sup>2</sup>exp(-(y-f(x))<sup>2</sup>/2σ<sup>2</sup>) </b>
+        </p>
+
+        <p>
+            gde je f funkcija koja uspostavlja vezu između atributa i očekivanja ciljne
+            promenljive. U zavisnosti od forme ove funkcije, moguće je dobiti vrlo različite
+            modele. Tehnički najjednostavnija forma modela je linearna: <b>f<sub>w</sub>(x) = w · x </b>
+        </p>
+
+        <div class="imgBox">
+            <img src="slike/linearna-regresija.png">
+            <p>Slika 1.</p>
+        </div>
+
+        <p>
+            i ta pretpostavka je sastavni deo modela linearne regresije. Slika 1. prikazuje ovakvu raspodelu sa
+            prosekom koji zavisi od neke promenljive. Najčešće se
+            podrazumeva da je skup atributa proširen atributom koji je konstantne vrednosti 1, kako bi model sadržao
+            slobodni koeficijent. Ukupni model je opisan na
+            sledeći način: <b>p<sub>w</sub>(y|x) = N (w · x, σ<sup>2</sup>) </b>
+        </p>
+
+        <div class="imgBox">
+            <img src="slike/2.png">
+            <p>Slika 2.</p>
+        </div>
+        
+        <p>
+            Kako modeluje uslovnu raspodelu, ovaj model je očigledno probabilistički diskriminativni.
+            Na slici 2., prikazan je primer dva poznata modela linearne regresije na
+            istom skupu podataka. Kako linearnost označava linearnost po parametrima,
+            ne treba da bude iznenadenje da linearni model može da predstavlja polinom.
+            To je takode linearna funkcija, ali nad bazom (1, x, . . . , xn).
+            Treba primetiti i da model pretpostavlja konstantnost varijanse normalne
+            raspodele. Odnosno, očekuje se da je odstupanje predvidanja od ciljne vrednosti
+            podjednako veliko i u slučaju velikih vrednosti ciljne promenljive i u slučaju
+            malih. Ovo nije uvek realistično, a često nije ni poželjno. Recimo, ukoliko se
+            model koristi za predviđanje dobiti u nekom poslu, greška od 10 hiljada dinara
+            je zanemarljiva ukoliko je očekivana dobit oko 10 miliona dinara. Ipak, ako je
+            očekivana dobit oko 10 hiljada dinara, onda je predviđanje sa takvom greškom
+            potpuno beskorisno.
+        </p>
+    </section>
+    <footer>
+        <p class="footer-autor">Autori: Zdravko Panin i Miljana Erceg - Odeljenje: 3-3</p>
+        <a href="mailto:zdravko.panin2019@gimnazijabp.edu.rs"
+            class="footer-mail">zdravko.panin2019@gimnazijabp.edu.rs</a>
+            <a href="mailto:miljana.erceg2019@gimnazijabp.edu.rs"
+            class="footer-mail">miljana.erceg2019@gimnazijabp.edu.rs</a>
+    </footer>
+</body>
+
+</html>

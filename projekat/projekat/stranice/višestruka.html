@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Višestruka linearna regresija</title>
+    <link rel="stylesheet" href="../dekorisanje.css">
+</head>
+<body>
+    <header>
+        <h1>Višestruka linearna regresija</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="../index.html">LINEARNA REGRESIJA</a>
+            </li>
+            <li>
+                <a href="logička.html">LOGISTIČKA REGRESIJA</a>
+            </li>
+            <li>
+                <a href="ksredin.html">K SREDINA</a>
+            </li>
+            <li>
+                <a href="autor.html">AUTOR</a>
+            </li>
+        </ul>
+    </nav>
+    <section>
+    <div> 
+        Model višestrukih linearnih regresija je statistički model za procjenu odnosa između neprekidnog cilja i prediktora. <br>
+        Prediktori mogu biti neprekidni, kategorijski ili izvedena polja pa su prema tome podržani i ne-linearni odnosi. Model je linearan ako se sastoji od članova koji se zbrajaju, gdje je svaki član prediktor koji se množi s procijenjenim koeficijentom. Konstantni član (sjecište) se također obično dodaje modelu. <br>
+        Linearna regresija se koristi za generiranje uvida iz grafikona koji sadrže najmanje dva neprekidna polja od kojih je jedno identificirano kao cilj, a drugo kao prediktor. Dodatno, kategorijski prediktor i dva pomoćna neprekidna polja mogu se specificirati u grafikonu i koristiti za generiranje odgovarajućeg regresijskog modela. Za svaki model koji je kandidat, IBM®Cognos Analytics izvodi F test značajnosti modela. <br>
+    
+    </div>
+    <div class="imgBox">
+        <img src="../slike/yiyi.png">
+    </div>
+    <div> 
+        <h2>Prilagođavanje i testiranje modela</h2>
+        Višestruki linearni model se prilagođava putem sljedećih koraka:<br>
+        <ul>
+            <ol>
+               <li>Konstruirajte matricu dizajna koja sadrži jedan red za svaki red podataka i jedan stupac za svaki parametar u modela regresije. Stupci odgovaraju prediktorima ili kategorijama prediktora.
+               </li>
+               <li>
+                Izračunajte koeficijente regresije
+               </li>
+               <ul>
+                <ol>
+                    <li> Pomnožite matricu dizajna s transponiranom matricom dizajna.
+                    </li>
+                    <li>Pomnožite transponiranu matricu dizajna s vektorom ciljnih vrijednosti.
+                    </li>
+                    <li>Pomnožite inverznu matricu iz koraka a s matricom iz koraka b.
+                    </li>
+                </ol>
+               </ul>
+            </ol>
+        </ul>
+    </div>
+    <div>
+        Pomoću dobivenih koeficijenata regresije izračunajte predviđene ciljne vrednosti za svaki red podataka. Razlike između predviđenih i opaženih ciljnih vrednosti se zovu reziduali. Zatim se testira značajnost modela pomoću F testa na sledeći način.
+        <ul>
+            <ol>
+               <li>Izračunajte kvadrat srednje vrednosti za izvor pogreške (neobjašnjena varijanca)
+               </li>
+               <ul>
+                <ol>
+                    <li> Izračunajte zbroj kvadrata za reziduale.
+                    </li> 
+                    <li>Podelite zbroj kvadrata za svaki izvor pogreške s odgovarajućim stupnjevima slobode.
+                    </li>
+                </ol>
+               </ul>
+               <li>Izračunajte kvadrat srednje vrijednosti za regresijski model (objašnjena varijanca).
+               </li>
+               <ul>
+                <ol>
+                    <li> Izračunajte zbroj kvadrata za model.
+                    </li> 
+                    <li>Podelite zbroj kvadrata za regresijski model s odgovarajućim stupnjevima slobode.
+                    </li>
+                </ol>
+                </ul>
+                <li>Podelite kvadrat srednje vrednosti za regresijski model s kvadratom srednje vrednosti za izvor greške. Drugim rečima, izračunajte omer objašnjene varijance prema neobjašnjenoj varijanci. Ovaj omjer je F vrednost.
+                </li>
+            </ol>
+        </ul>
+    </div>
+    <div>
+        F vrednost se uspoređuje s teoretskom F distribucijom da bi se utvrdila verovatnost slučajnog dobijanja F vrednosti.<br>
+        Ta verovatnost predstavlja vrednost značaja.<br>
+        Ako je vrednost značaja manja od razine značaja, tada su srednje vrednosti značajno različite.<br>
+        Prilagođeni R2 se koristi za procjenu prediktivne snage regresijskog modela. Za razinu značajnosti se stavlja 5% i prediktivna snaga modela mora biti veća od 10% da bi se pokazao pouzdan prediktivni odnos između ciljnog i ulaznog polja.
+    </div>
+    <div>
+        <h2> Izbor modela</h2>
+        Postupak izbora modela zavisi o tome je li prisutan kategorijski prediktor ili ne. Ako je naveden samo neprekidni prediktor, tada se razmatraju sledeća tri modela.<br>
+        <ul>
+            <ol>
+                <li>Konstantni model koji uvijek predviđa ukupnu srednju vrijednost.
+                </li>
+                <li>Linearni model u kojem se jedan prediktor dodaje konstanti.
+                </li>
+                <li>Kvadratni model u kojem se kvadratni prediktor dodaje linearnom modelu.
+                </li>
+            </ol>
+        </ul>
+    </div>
+    <div>
+        Kvadratni model se bira ako je značajan i ako pruža relativno poboljšanje prediktivne snage od najmanje 10% u odnosu na linearni model. Ako je izabran, dobijete krivulju kvadratne aproksimacije zajedno s prediktivnom snagom modela.<br>
+        U suprotnom, bira se linearni model ako zadovoljava iste uvete u usporedbi s konstantnim modelom. Ako je izabrana, dobijete krivulju linearne aproksimacije zajedno s prediktivnom snagom modela. <br>
+        Ako nije izabran nijedan od prethodnih modela. Dobijete ukupnu srednju vrednost i nećete dobiti predviđeni odnos između cilja i ulaza.<br>
+        Ako je prisutan kategorijski prediktor, tada je proces izbora složeniji jer se razmatra do odam različitih modela. Koraci izbora su slični prethodno navedenim koracima jer se bira najsloženiji model koji je značajan i pruža dovoljno relativnog poboljšanja u odnosu na prvi ugneždeni model.<br>
+        Za izabrani model dobijete prediktivnu snagu kao i odgovarajuće linije aproksimacije zavisno o modelu i broju kategorija u kategorijskom prediktoru koji je izabran i ako je uopšte izabran. Broj kategorija u kategorijskom prediktoru je ograničen na 3, kako bi se smanjio broj prikazanih linija aproksimacije.<br>
+    </div>
+</section>
+<footer>
+    <p class="footer-autor">Autori: Zdravko Panin i Miljana Erceg - Odeljenje: 3-3</p>
+        <a href="mailto:zdravko.panin2019@gimnazijabp.edu.rs"
+            class="footer-mail">zdravko.panin2019@gimnazijabp.edu.rs</a>
+            <a href="mailto:miljana.erceg2019@gimnazijabp.edu.rs"
+            class="footer-mail">miljana.erceg2019@gimnazijabp.edu.rs</a>
+</footer>
+</body>
+</html>

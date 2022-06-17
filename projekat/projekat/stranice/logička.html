@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Logička regresija</title>
+    <link rel="stylesheet" href="../dekorisanje.css">
+</head>
+
+<body>
+    <header>
+        <h1>Logistička regresija</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="../index.html">LINEARNA REGRESIJA</a>
+            </li>
+            <li>
+                <a href="ksredin.html">K SREDINA</a>
+            </li>
+            <li>
+                <a href="višestruka.html">VIŠESTRUKA LINEARNA REGRESIJA</a>
+            </li>
+            <li>
+                <a href="autor.html">AUTOR</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <section>
+        <p>
+            Dok linearna regresija predstavlja regresioni model, logistička regresija, uprkos svom nazivu, predstavlja
+            model binarne klasifikacije. Osnovna pretpostavka sa probabilističke tačke gledišta je pretpostavka
+            Bernulijeve raspodele ciljne
+            promenljive y, pri datim vrednostima atributa x. Drugim rečima za date vrednosti atributa x, postoji
+            parametar µ ∈ [0, 1] tako da važi
+
+        </p>
+        <div class="imgBox">
+            <img src="../slike/3.png">
+        </div>
+        <p>
+            pri čemu je p(y|x) diskretna funkcija raspodele. Umesto ovog izraza, češće se
+            piše samo p(y = 1|x) = µ, dok se vrednost za p(y = 0|x) odatle jednoznaˇcno
+            izračunava. Ovaj model nije kompletan, jer nije ustanovljena zavisnost parametra µ od vrednosti atributa x.
+            Kako taj parametar mora biti u intervalu
+            [0, 1] da bi verovatnoća bila ispravno definisana, do sada korišćeni linearni model nije prihvatljiv. Ipak,
+            ukoliko bi se vrednost linearnog modela, koja može
+            biti u intervalu [−∞, ∞], transformisala nekom monotonom (i po mogućstvu
+            neprekidnom i diferencijabilnom) funkcijom u interval [0, 1], takav model bi bio
+            prihvatljiv. Jedna takva funkcija, koja se često koristi u mašinskom učenju, je
+            sigmoidna funkcija:
+            <b>σ(t)=1/1+exp(-t)</b>
+
+        </p>
+        <p>
+            Postoje i druge funkcije koje zadovoljavaju
+navedene kriterijume. Glavni razlog korišćenja sigmoidne funkcije vezan je za
+njeno prirodno pojavljivanje u uopˇstenim linearnim modelima o kojima će biti
+reči kasnije.
+Ukoliko se vrednost linearnog modela transformiˇse sigmoidnom funkcijom,
+model logistiˇcke regresije će biti odreden sledećom relacijom: <b>pw(y=1|x)=σ(w · x)</b>
+Time je definisana zavisnost parametra Bernulijeve raspodele od vrednosti atributa x. Verovatnoća pw(y = 1|x) pripadanja klasi 1 je utoliko veća, što je tačka
+x dalje od hiperravni definisane relacijom w · x = 0 u njenom pozitivnom poluprostoru. Verovatnoća pripadanja drugoj klasi je utoliko veća što je tačka
+dublje u negativnom poluprostoru.
+
+
+        </p>
+    </section>
+    <footer>
+        <p class="footer-autor">Autori: Zdravko Panin i Miljana Erceg - Odeljenje: 3-3</p>
+        <a href="mailto:zdravko.panin2019@gimnazijabp.edu.rs"
+            class="footer-mail">zdravko.panin2019@gimnazijabp.edu.rs</a>
+            <a href="mailto:miljana.erceg2019@gimnazijabp.edu.rs"
+            class="footer-mail">miljana.erceg2019@gimnazijabp.edu.rs</a>
+    </footer>
+</body>
+
+</html>

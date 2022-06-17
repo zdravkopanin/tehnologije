@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Sredina</title>
+    <link rel="stylesheet" href="../dekorisanje.css">
+</head>
+
+<body>
+    <header>
+        <h1>K sredina</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="../index.html">LINEARNA REGRESIJA</a>
+            </li>
+            <li>
+                <a href="logička.html">LOGISTIČKA REGRESIJA</a>
+            </li>
+            <li>
+                <a href="višestruka.html">VIŠESTRUKA LINEARNA REGRESIJA</a>
+            </li>
+            <li>
+                <a href="autor.html">AUTOR</a>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <p>Algoritam k sredina pronalazi k klastera u podacima koje predstavlja pomoću k centroida tih klastera, od kojih se svaka dobija uprosečavanjem elemenata datog klastera. Ova pretpostavka čini algoritam primenljivim samo na
+            podatke koji se mogu uprosečavati, poput vektora. Pod odredenim uslovima,
+            postoje uopštenja algoritma i na drugačije vrste podataka, ali o njima neće biti
+            reči. Polaznih k centroida se bira nasumično (mada, ako korisnik zna nešto o
+            strukturi svojih podataka, mogu biti i unapred date), a potom se ponavljaju
+            sledeči koraci:
+            <ul>
+                <ol>
+                   <li>
+                    rasporediti sve instance u nove klastere tako što se svaka instanca pridruži
+najbližoj centroidi
+
+                   </li>
+                   <li>
+                    izračunati nove centroide kao prosek instanci koje su im pridružene.
+                   </li>
+                </ol>
+            </ul>
+        </p>
+        <p>
+            Ovi koraci se izvršavaju sve dok se centroide menjaju. Kada su centroide iste
+u dve uzastopne iteracije, algoritam se zaustavlja.
+        </p>
+
+        <div class="imgBox">
+            <img src="../slike/yuh.PNG">
+        </div>
+
+        <p>
+            Primer klastera koje pronalazi ovaj algoritam, dat je na slici.
+        </p>
+        <img src="../slike/Capture.PNG">
+        <p>
+            Može se
+            pokazati da ovaj algoritam minimizuje funkciju
+            po ci
+            , gde je d euklidsko rastojanje (ali je moguće koristiti i neko drugo). Na
+            osnovu ovoga se može nešto zaključiti i o njegovom ponašanju. Zahvaljujući
+            tome što je zasnovan na minimizaciji euklidskog rastojanja, algoritam teži pronalaženju klastera u obliku lopte. Kako je rastojanje kvadrirano, algoritam je
+            osetljiv na podatke koji značajno odudaraju od ostalih. U tom slučaju će veće
+            rastojanje uticati na ukupnu grešku neproporcionano u odnosu na ostala rastojanja i takva tačka će neprpororcionalno uticati na lokaciju centroide. Takode,
+            ako gustina tačaka ne varira drastično i rastojanja medu klasterima nisu velika, algoritam preferira klastere sa sličnim brojem tačaka u njima, pošto bi u
+            tom slučaju brojan klaster morao sadržati i tačke
+        </p>
+        <p>
+            Činjenica da algoritam k sredina minimizuje navedenu sumu navodi na njenu dalju analizu. Bitno je pitanje da li ona ima jedan globalni minimum, odnosno da li je najbolje klasterovanje u odnosu na datu sumu kvadrata rastojanja
+jedinstveno. Odgovor na prvo pitanje je negativan. Moguće je da postoji veći
+broj klasterovanja jednakog kvaliteta. Jedan primer u kojem bi to bilo i intuitivno je kada su tačke uniformno rasporedene unutar kruga i potrebno ih je
+podeliti na dva klastera. Rotiranje dobijenih centroida u odnosu na centar kruga
+daje podjednako dobro klasterovanje. Drugim rečima, u slučaju takvog skupa
+podataka, postoji puno globalnih, i samim tim podjednako dobrih, minimuma.
+Takva situacija nije zabrinjavajuća.
+        </p>
+    </section>
+    <footer>
+        <p class="footer-autor">Autori: Zdravko Panin i Miljana Erceg - Odeljenje: 3-3</p>
+        <a href="mailto:zdravko.panin2019@gimnazijabp.edu.rs"
+            class="footer-mail">zdravko.panin2019@gimnazijabp.edu.rs</a>
+            <a href="mailto:miljana.erceg2019@gimnazijabp.edu.rs"
+            class="footer-mail">miljana.erceg2019@gimnazijabp.edu.rs</a>
+    </footer>
+
+</body>
+
+</html>
